@@ -68,7 +68,7 @@
 			var points = 0
 			var speed = 10
 			var positionY = 0
-			var speedY = 0
+			var speedY = 5
 			var boardHeight = jQuery(window).height();
 			
 
@@ -80,7 +80,7 @@
 			*/
 			function update() {
 				positionX = positionX + speed;
-				positionY = positionY + speed;
+				positionY = positionY + speedY;
 				moveBoxTo(positionX, positionY);
 
 			if (positionX >= boardWidth){
@@ -89,7 +89,9 @@
 				speed = -speed;
 			}
 			if (positionY >= boardHeight){
-				speed = -speed;
+				speedY = -speedY;
+			}else if (positionY < 0){
+				speedY = -speedY;
 			}
 			};
 
